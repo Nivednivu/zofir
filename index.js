@@ -4,19 +4,17 @@ const cors = require("cors");
 const multer = require("multer");
 const path = require("path");
 const fs = require("fs");
-
+ 
 const app = express();
 app.use(cors()); 
-app.use(express.json());
+app.use(express.json()); 
 
 app.use("/uploads", express.static("uploads"));
-
-const MONGODB_URI = "mongodb+srv://nivedtp6_db_user:WHqDDdPo96Cq5hHA@cluster0.wydedx7.mongodb.net/taskmanager?retryWrites=true&w=majority";
-
-mongoose.connect(MONGODB_URI)
+const MONGODB_URI = "mongodb+srv://nivedtp6_db_user:gAddHii4oPxcQDyv@nived.3defqrl.mongodb.net/?appName=nived";
+mongoose.connect(MONGODB_URI) 
 .then(() => console.log("✅ MongoDB connected successfully"))
-.catch(err => {
-    console.error("❌ MongoDB connection error:", err.message);
+.catch(err => {  
+    console.error("❌ MongoDB connection error:", err.message); 
     
     mongoose.connect("mongodb://127.0.0.1:27017/taskmanager")
     .then(() => console.log("✅ Connected to local MongoDB"))
